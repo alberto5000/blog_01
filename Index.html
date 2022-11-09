@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine" />
+  </head>
+
+  <body>
+    <div class="main-overlay">
+      <div></div>
+    </div>
+
+    <div class="main-overlay2">
+      <div></div>
+    </div>
+
+    <div class="banner">
+      <div>My Blog</div>
+    </div>
+
+    <nav class="navigation-container">
+      <div class="logo-container">
+        <span>MyBlog.com</span>
+        </span>
+      </div>
+      <ul class="navigation">
+        <li class="list-item"><a class="link" href="#">Home</a></li>
+        <li class="list-item"><a class="link" href="#">About</a></li>
+        <li class="list-item"><a class="link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-container">
+      <div class="titles-list" id="titles-list-id"></div>
+      <div class="article-container" id="article-container-id"></div>
+      <div class="tags-and-authors">
+        <div class="propriety-container">Tags</div>
+          <div class="propriety-items" id="tags-container"></div>
+        <div class="propriety-container">Authors</div>
+        <div class="propriety-items" id="authors-container"></div>
+      </div>
+    </div>
+    <script type="module" src="script.js"></script>
+
+    <footer class="page-footer">
+      <div class="footer-container">ⒸMy Blog. All rights reserved.</div>
+    </footer>
+  </body>
 </html>
