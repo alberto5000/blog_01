@@ -1,24 +1,44 @@
 {
-  "name": "git-training2",
+  "name": "blog_01",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init-project": "npm install && npm-run-all init:*",
+    "init:dirs": "mkdir sass css js vendor images",
+    "init:files": "touch js/script.js sass/style.scss README.md",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "test": "npm run test:html",
+    "test:html": "html-validate *.html",
+    "build": "npm-run-all build:* test",
+    "build:sass": "sass --style=compressed --no-source-map sass:css",
+    "build:autoprefixer": "sass postcss css/*.css --use autoprefixer -d css",
+    "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
+    "build-dev:sass": "sass --style=expanded --source-map sass:css",
+    "watch": "npm-run-all build build-dev -p watch:*",
+    "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\"",
+    "watch:sassprefixer": "onchange sass/*.scss -- npm run build-dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alberto5000/git-training2.git"
+    "url": "git+https://github.com/alberto5000/blog_01.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "blog"
+  ],
+  "author": "Alberto5000",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alberto5000/git-training2/issues"
+    "url": "https://github.com/alberto5000/blog_01/issues"
   },
-  "homepage": "https://github.com/alberto5000/git-training2#readme",
+  "homepage": "https://github.com/alberto5000/blog_01#readme",
   "devDependencies": {
     "browser-sync": "^2.27.10",
-    "html-validate": "^7.7.1"
+    "autoprefixer": "^10.2.4",
+    "html-validate": "^7.8.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.56.1"
   }
 }
